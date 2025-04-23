@@ -1,0 +1,67 @@
+{
+  "project_name": "MyProject",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "app_name": "MyApp",
+  "author_name": "INPATHTAMILAN",
+  "description": "A Django project For Web API using Django REST framework",
+  "django_version": "5.0.6",
+  "python_version": "3.11",
+  "django_secret_key": "development-secret-key",
+  "database": {
+    "type": "choice",
+    "choices": ["postgresql", "mysql", "sqlite"],
+    "default": "postgresql"
+  },
+  "authentication": {
+    "type": "choice",
+    "choices": ["jwt", "session", "token"],
+    "default": "jwt"
+  },
+  "use_docker": {
+    "type": "choice",
+    "choices": ["yes", "no"],
+    "default": "yes"
+  },
+  "ci_cd": {
+    "type": "choice",
+    "choices": ["github-actions", "gitlab-ci", "none"],
+    "default": "github-actions"
+  },
+  "testing_framework": {
+    "type": "choice",
+    "choices": ["pytest", "unittest"],
+    "default": "pytest"
+  },
+  "api_docs": {
+    "type": "choice",
+    "choices": ["swagger", "redoc", "none"],
+    "default": "swagger"
+  },
+  "frontend_integration": {
+    "type": "choice",
+    "choices": ["react", "vue", "svelte", "none"],
+    "default": "react"
+  },
+  "caching": {
+    "type": "choice",
+    "choices": ["redis", "memcached", "none"],
+    "default": "redis"
+  },
+  "task_queue": {
+    "type": "choice",
+    "choices": ["celery", "dramatiq", "none"],
+    "default": "celery"
+  },
+  "extra_packages": [
+    "django-debug-toolbar",
+    "django-extensions",
+    "django-cors-headers",
+    "whitenoise"
+  ],
+  "env_management": {
+    "type": "choice",
+    "choices": ["dotenv", "environment-variables"],
+    "default": "dotenv"
+  },
+  "_extensions": ["cookiecutter.extensions.JsonifyExtension"]
+}
