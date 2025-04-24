@@ -6,19 +6,8 @@ class BaseSerializer(serializers.ModelSerializer):
     """
     created_at = serializers.DateTimeField(read_only=True)
     updated_at = serializers.DateTimeField(read_only=True)
-    created_on = serializers.DateTimeField(read_only=True)
-    updated_on = serializers.DateTimeField(read_only=True)
-
-    def validate(self, data):
-        """
-        Add custom validation logic that applies to all serializers.
-        """
-        # Example: Ensure no field contains a forbidden value
-        forbidden_value = "forbidden"
-        for field, value in data.items():
-            if value == forbidden_value:
-                raise serializers.ValidationError({field: f"{field} contains a forbidden value."})
-        return data
+    created_by = serializers.PrimaryKeyRelatedField(read_only=True)
+    updated_by = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         abstract = True
